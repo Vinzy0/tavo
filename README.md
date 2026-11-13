@@ -75,7 +75,7 @@ repository/
 │  ├─ app/                 public pages (/ , /inquiry, /login) and the CRM
 │  └─ lib/                 API client, formatting, notice messages
 ├─ compose.yaml            PostgreSQL + API containers
-├─ render.yaml              Reviewable hosted demo configuration (not deployed)
+├─ render.yaml              Hosted demo configuration (deployed on Render)
 └─ docs/                   PRD, plan, setup, verification notes
 ```
 
