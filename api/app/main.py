@@ -1,4 +1,4 @@
-from fastapi import Depends, FastAPI, HTTPException, Request, status
+from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import select, text
 from sqlalchemy.orm import Session
@@ -107,6 +107,7 @@ def me(user: User = Depends(current_user)):
 def create_lead(
     payload: LeadCreate,
     request: Request,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
     provider: AIProvider = Depends(get_ai_provider),
     email_provider: EmailProvider = Depends(get_email_provider),
@@ -120,7 +121,7 @@ def create_lead(
         raise HTTPException(409, str(exc)) from None
     if created:
         # AI and email failures are recorded on the lead instead of blocking it.
-        leads.process_new_lead(db, lead, provider, email_provider)
+        background_tasks.add_task(leads.process_saved_lead, db.get_bind(), lead.id, provider, email_provider)
     return lead
 
 
