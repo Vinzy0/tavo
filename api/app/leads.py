@@ -214,3 +214,11 @@ def reset_demo_data(db: Session, provider: AIProvider, email_provider: EmailProv
         "seeded": len(seeded),
         "lead_ids": [lead.id for lead in seeded],
     }
+
+
+def process_saved_lead(bind, lead_id: int, provider: AIProvider, email_provider: EmailProvider) -> None:
+    # Background work owns its session after the request session closes.
+    with Session(bind) as db:
+        lead = db.get(Lead, lead_id)
+        if lead is not None:
+            process_new_lead(db, lead, provider, email_provider)
