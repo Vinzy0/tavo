@@ -1,5 +1,9 @@
 # Tavo
 
+**Automation & Integrations milestone:** scoped external API keys, a versioned lead API, signed persistent webhooks with delivery logs/retries, an owner Integrations area, and source/tags/follow-up/appointment fields. The feature branch runs on a separate [staging frontend](https://tavo-web-staging.onrender.com) and [staging API](https://cleanflow-api-staging.onrender.com/api/health). **Both real Make scenarios are VERIFIED:** Make created lead #5, OpenRouter classified it, the CRM displays the analysis, and its signed lead.created event produced an actual Google Sheets row. Replays preserve one lead/analysis/event and one unchanged sheet row. See [live evidence](docs/STAGING_VERIFICATION.md), [integration architecture](docs/INTEGRATIONS.md), and [Make setup](docs/MAKE_WORKFLOWS.md). Zapier/n8n remain compatible only; Calendar was not executed. The public demo below retains the master baseline.
+
+Verified portfolio statement: “I built a custom CRM with authenticated external APIs, secure event-driven webhooks, integration logging and retries, AI lead processing, and real Make.com workflows connecting CRM events with external business tools.”
+
 A working CRM and inquiry-automation demo built for a **fictional cleaning business**. Tavo is the software product; Acme Cleaning Services is the sample business. This is a portfolio piece that can be tailored to another service business.
 
 **Live demo:** [Open Tavo](https://tavo-web-6d8p.onrender.com) · [API health](https://tavo-api.onrender.com/api/health). The full synthetic inquiry workflow has passed on the public deployment with Neon PostgreSQL, OpenRouter, and Resend's safe test address. See [verification](docs/VERIFICATION.md) for the exact checks and limits.
