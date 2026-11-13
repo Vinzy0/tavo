@@ -311,3 +311,11 @@ Exact remaining verification steps, with commands, are in [docs/VERIFICATION.md]
 - [Local setup detail](docs/PHASE1_SETUP.md) — environment walkthrough
 - [Remaining verification](docs/VERIFICATION.md) — what still needs real infrastructure
 - [Free deployment plan](docs/DEPLOYMENT.md) — Render Free web services, Neon Free database, and Resend test delivery
+
+## Public demo screens
+
+Captured with Playwright. The public demo may show its wake-up screen while its API starts.
+
+![Public demo](docs/screenshots/public.png)
+
+![Business sign in](docs/screenshots/login.png)
